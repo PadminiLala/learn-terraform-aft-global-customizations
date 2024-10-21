@@ -66,3 +66,4 @@ for REGION in $REGIONS; do
         echo "No default VPC in $REGION."
     fi
 done
+
