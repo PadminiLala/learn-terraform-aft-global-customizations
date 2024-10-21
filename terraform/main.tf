@@ -3,6 +3,7 @@
 
 provider "aws" {
   region = "us-east-1"
+  alias  = "target"
 
   # Set up the provider to assume a role in the target account
   assume_role {
@@ -11,10 +12,13 @@ provider "aws" {
 }
 data "aws_region" "current" {}
 
-data "aws_organizations_organization" "org" {}
+data "aws_organizations_organization" "org" {
+    provider = aws.target
+}
 
 data "aws_organizations_organizational_units" "root" {
   parent_id = data.aws_organizations_organization.org.roots[0].id
+  provider = aws.target
 }
 
 resource "aws_controltower_control" "example" {
