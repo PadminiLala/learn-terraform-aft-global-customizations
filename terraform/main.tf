@@ -1,6 +1,5 @@
 # main.tf
 
-
 provider "aws" {
   region = "us-east-1"
   alias  = "target"
@@ -88,3 +87,4 @@ resource "aws_controltower_control" "guardrails" {
   target_identifier = local.ous_id_to_arn_map[each.value[1]]
 
 }
+
