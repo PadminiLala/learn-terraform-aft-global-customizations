@@ -17,6 +17,6 @@ module "policy_attach" {
   for_each                = var.ou_list
   ou                      = each.key
   policies                = each.value
-  policy_id               = aws_organizations_policy.this
+  policy_id               = aws_organizations_policy.this.id
   policies_directory_name = var.policies_directory_name
 }
