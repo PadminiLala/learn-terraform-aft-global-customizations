@@ -2,12 +2,16 @@
 // SPDX-License-Identifier: MIT-0
 
 resource "aws_organizations_policy" "this" {
+  provider = aws.target
   for_each = fileset(path.root, "${var.policies_directory_name}/*.json")
   name     = trimprefix(trimsuffix(each.value, ".json"), "${var.policies_directory_name}/")
   content  = file(each.value)
 }
 
 module "policy_attach" {
+  providers = {
+    aws = aws.target
+  }
   depends_on              = [aws_organizations_policy.this]
   source                  = "./modules/policy_attach"
   for_each                = var.ou_list
