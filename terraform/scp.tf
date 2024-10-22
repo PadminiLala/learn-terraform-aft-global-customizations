@@ -9,9 +9,7 @@ resource "aws_organizations_policy" "this" {
 }
 
 module "policy_attach" {
-  providers = {
-    aws = aws.target
-  }
+
   depends_on              = [aws_organizations_policy.this]
   source                  = "./modules/policy_attach"
   for_each                = var.ou_list
