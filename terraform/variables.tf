@@ -20,10 +20,9 @@ variable "controls" {
 // SPDX-License-Identifier: MIT-0
 
 variable "ou_list" {
-    default = {
-        "ou-yg4k-0fjg9s9p" = ["sandbox"]                #sandbox ou
-
-    }
+  default = {
+    "ou-yg4k-0fjg9s9p" = ["root"]                #sandbox ou
+  }
 }
 
 variable "policies_directory_name" {
