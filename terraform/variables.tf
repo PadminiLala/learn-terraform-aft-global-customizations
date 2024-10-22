@@ -16,3 +16,17 @@ variable "controls" {
     },
   ]
 }
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+
+variable "ou_list" {
+    default = {
+        "ou-yg4k-0fjg9s9p" = ["sandbox"]                #sandbox ou
+
+    }
+}
+
+variable "policies_directory_name" {
+  type    = string
+  default = "policies"
+}
