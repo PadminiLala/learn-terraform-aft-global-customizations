@@ -25,7 +25,7 @@ def run_aws_command(command):
 
 # Get governed regions from AWS Control Tower
 def get_governed_regions(landing_zone_arn):
-    command = f"aws controltower get-landing-zone --landing-zone-identifier {landing_zone_arn}"
+    command = f"aws controltower get-landing-zone --landing-zone-identifier {landing_zone_arn} --profile ct-management --region us-east-1"
     output = run_aws_command(command)
     try:
         landing_zone_data = json.loads(output)
