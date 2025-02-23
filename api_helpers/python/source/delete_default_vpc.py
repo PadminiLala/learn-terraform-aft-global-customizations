@@ -31,6 +31,7 @@ def get_governed_regions(landing_zone_arn):
     try:
         landing_zone_data = json.loads(output)
         governed_regions = landing_zone_data.get("LandingZone", {}).get("GovernedRegions", [])
+        print(governed_regions)
         return governed_regions
     except json.JSONDecodeError:
         print("Failed to parse the JSON response.")
