@@ -46,7 +46,7 @@ for region in governed_regions:
     print(f"Checking governed region: {region}")
     
     # Get the default VPC ID for the current region
-    vpc_id_command = f"aws ec2 describe-vpcs --region {region} --filters 'Name=isDefault,Values=false' --query 'Vpcs[0].VpcId' --output text"
+    vpc_id_command = f"aws ec2 describe-vpcs --region {region} --filters 'Name=isDefault,Values=true' --query 'Vpcs[0].VpcId' --output text"
     vpc_id = run_aws_command(vpc_id_command).strip()
     print(f"VPC ID in {region}: {vpc_id}")
 
