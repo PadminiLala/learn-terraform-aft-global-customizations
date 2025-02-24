@@ -30,7 +30,7 @@ def get_governed_regions(landing_zone_arn):
     print(output)
     try:
         landing_zone_data = json.loads(output)
-        governed_regions = landing_zone_data.get("LandingZone", {}).get("GovernedRegions", [])
+        governed_regions = landing_zone_data.get("landingZone", {}).get("manifest", {}).get("governedRegions", [])
         print(governed_regions)
         return governed_regions
     except json.JSONDecodeError:
